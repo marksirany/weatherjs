@@ -44,8 +44,8 @@ function weatherForecast() {
                 console.log(response)
                 document.getElementById("name").innerHTML=response.data.name;
                 document.getElementById("temp").innerHTML = "Temperature: " + response.data.main.temp + " °F";
-                document.getElementById("humidity").innerHTML="Humidity: "+response.data.main.humidity + " %";
-                document.getElementById("wind").innerHTML="Wind: "+response.data.wind.speed + " mph";
+                document.getElementById("humidity").innerHTML="Humidity: "+response.data.main.humidity + "%";
+                document.getElementById("wind").innerHTML="Wind Speed: "+response.data.wind.speed + " mph";
                 
             })
      
@@ -61,14 +61,15 @@ function weatherForecast() {
                 console.log(response)
                 document.getElementById("date0").innerHTML = "Date: " + response.data.list[0].dt_txt;
                 document.getElementById("temp0").innerHTML = "Temperature: " + response.data.list[0].main.temp + " °F";
-                document.getElementById("humidity0").innerHTML = "Humidity: " + response.data.list[0].main.humidity + " %";
+                document.getElementById("humidity0").innerHTML = "Humidity: " + response.data.list[0].main.humidity + "%";
+                document.getElementById("icon0").innerHTML = ": " + response.data.list[0].weather[0].icon;
                 
             })
         axios.get(oneDayWeatherURL)
             .then(function (response) {
                 document.getElementById("date1").innerHTML = "Date: " + response.data.list[1].dt_txt;
                 document.getElementById("temp1").innerHTML = "Temperature: " + response.data.list[1].main.temp + " °F";
-                document.getElementById("humidity1").innerHTML = "Humidity: " + response.data.list[1].main.humidity + " %";
+                document.getElementById("humidity1").innerHTML = "Humidity: " + response.data.list[1].main.humidity + "%";
                 
 
                 
@@ -78,8 +79,8 @@ function weatherForecast() {
             .then(function (response) {
                 document.getElementById("date2").innerHTML = "Date: " + response.data.list[2].dt_txt;
                 document.getElementById("temp2").innerHTML = "Temperature: " + response.data.list[2].main.temp + " °F";
-                document.getElementById("humidity2").innerHTML = "Humidity: " + response.data.list[2].main.humidity + " %";
-                document.getElementById("wind").innerHTML = "Wind: " + response.data.wind.speed + " mph";
+                document.getElementById("humidity2").innerHTML = "Humidity: " + response.data.list[2].main.humidity + "%";
+                
 
                 
 
@@ -88,7 +89,7 @@ function weatherForecast() {
             .then(function (response) {
                 document.getElementById("date3").innerHTML = "Date: " + response.data.list[3].dt_txt;
                 document.getElementById("temp3").innerHTML = "Temperature: " + response.data.list[3].main.temp + " °F";
-                document.getElementById("humidity3").innerHTML = "Humidity: " + response.data.list[3].main.humidity + " %";
+                document.getElementById("humidity3").innerHTML = "Humidity: " + response.data.list[3].main.humidity + "%";
                 
 
 
@@ -98,7 +99,7 @@ function weatherForecast() {
             .then(function (response) {
                 document.getElementById("date4").innerHTML = "Date: " + response.data.list[4].dt_txt;
                 document.getElementById("temp4").innerHTML = "Temperature: " + response.data.list[4].main.temp + " °F";
-                document.getElementById("humidity4").innerHTML = "Humidity: " + response.data.list[4].main.humidity + " %";
+                document.getElementById("humidity4").innerHTML = "Humidity: " + response.data.list[4].main.humidity + "%";
                 
 
 
