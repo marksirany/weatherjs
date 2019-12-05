@@ -10,7 +10,7 @@ function weatherForecast() {
             event.preventDefault();
             userCity = document.getElementById('city').value;
             
-            console.log('You searched for this city: ', userCity);
+                console.log('You searched for this city: ', userCity);
             storeInLocalStorage(userCity);
             searchForCityWeather(userCity);
             searchForForecast(userCity);
@@ -35,10 +35,10 @@ function weatherForecast() {
     // Function will be used to perform request to the weather API
     function searchForCityWeather(userCity) {
 
-        const apiKey = "947af45bc8d7b63be4d0d313320202fb";
+        const apiKey = "76276e859a5fc64d330030ae4dae33a3";
         const cityName = userCity;
         const units = "imperial";
-        const oneDayWeatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
+        const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
         axios.get(oneDayWeatherURL)
             .then(function(response){
                 console.log(response)
@@ -52,10 +52,10 @@ function weatherForecast() {
     };
 
     function searchForForecast(userCity) {
-        const apiKey = "ec85d8badd7e8fed592d17baa25d62ea";
+        const apiKey = "76276e859a5fc64d330030ae4dae33a3";
         const cityName = userCity;
         const units = "imperial";
-        const fiveDayWeatherURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
+        const fiveDayWeatherURL = "https//api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
         axios.get(fiveDayWeatherURL)
             .then(function (response) {
                 console.log(response)
@@ -72,4 +72,3 @@ function weatherForecast() {
 };
 weatherForecast();
 
-// "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
