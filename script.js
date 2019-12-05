@@ -55,19 +55,15 @@ function weatherForecast() {
         const apiKey = "76276e859a5fc64d330030ae4dae33a3";
         const cityName = userCity;
         const units = "imperial";
-        const fiveDayWeatherURL = "https//api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
-        axios.get(fiveDayWeatherURL)
+        const oneDayWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
+        axios.get(oneDayWeatherURL)
             .then(function (response) {
                 console.log(response)
-                // document.getElementById("name").innerHTML = response.data.name;
-                // document.getElementById("temp").innerHTML = "Temperature: " + response.data.main.temp + " °F";
-                // document.getElementById("humidity").innerHTML = "Humidity: " + response.data.main.humidity + " %";
-                // document.getElementById("wind").innerHTML = "Wind: " + response.data.wind.speed + " mph";
+
 
             })
 
     };
-    
     
 };
 weatherForecast();
