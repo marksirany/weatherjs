@@ -15,6 +15,7 @@ function weatherForecast() {
             searchForCityWeather(userCity);
             searchForForecast(userCity);
             searchForCityCoord(userCity);
+            displayLocalStorage(userCity);
         });
 
     }
@@ -55,7 +56,7 @@ function weatherForecast() {
         const apiKey = "76276e859a5fc64d330030ae4dae33a3";
         const cityName = userCity;
         const units = "imperial";
-        const oneDayWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
+        const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
         axios.get(oneDayWeatherURL)
             .then(function(response){
                 console.log(response)
@@ -67,11 +68,21 @@ function weatherForecast() {
      
     };
 
+    function displayLocalStorage(userCity) {
+        var i;
+
+        console.log("local storage");
+        for (i = 0; i < localStorage.length; i++) {
+            console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+            document.getElementById("local1").innerHTML="recent: " + i++;
+        }
+    };    
+
     function searchForForecast(userCity) {
         const apiKey = "76276e859a5fc64d330030ae4dae33a3";
         const cityName = userCity;
         const units = "imperial";
-        const oneDayWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
+        const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
         axios.get(oneDayWeatherURL)
             .then(function (response) {
                 console.log(response)
