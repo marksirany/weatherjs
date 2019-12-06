@@ -1,4 +1,5 @@
 let userCity = "minneapolis";
+const cityToStore = userCity;
 
 function weatherForecast() {
 
@@ -34,6 +35,23 @@ function weatherForecast() {
 
     storeInLocalStorage();
 
+    function displayLocalStorage() {
+     
+        var history = "";
+        if (localStorage.getItem("history") !== "") {
+            var history = localStorage.getItem("history");
+        }
+
+        if (history !== "") {
+            $("#lastResults").html(
+                "<b>Last Results:</b>" +
+                "<ul data-role=\"listview\" data-inset=\"true\" >" +
+                "<li><a href=\"#test\"> " + document.write(history) + " </a></li>" +
+                "</ul>"
+            );
+        }
+    };   
+
     // Function will be used to perform request to the weather API
     function searchForCityWeather(userCity) {
 
@@ -68,15 +86,7 @@ function weatherForecast() {
      
     };
 
-    function displayLocalStorage(userCity) {
-        var i;
-
-        console.log("local storage");
-        for (i = 0; i < localStorage.length; i++) {
-            console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-            document.getElementById("local1").innerHTML="recent: " + i++;
-        }
-    };    
+ 
 
     function searchForForecast(userCity) {
         const apiKey = "76276e859a5fc64d330030ae4dae33a3";
