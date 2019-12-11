@@ -10,8 +10,8 @@ function weatherForecast() {
         searchButtonEl.addEventListener('click', function () {
             event.preventDefault();
             userCity = document.getElementById('city').value;
-            
-                console.log('You searched for this city: ', userCity);
+
+            console.log('You searched for this city: ', userCity);
             storeInLocalStorage(userCity);
             searchForCityWeather(userCity);
             searchForForecast(userCity);
@@ -36,7 +36,7 @@ function weatherForecast() {
     storeInLocalStorage();
 
     function displayLocalStorage() {
-     
+
         var history = "";
         if (localStorage.getItem("history") !== "") {
             var history = localStorage.getItem("history");
@@ -51,7 +51,7 @@ function weatherForecast() {
                 "</ul>"
             );
         }
-    };   
+    };
 
     // Function will be used to perform request to the weather API
     function searchForCityWeather(userCity) {
@@ -61,13 +61,13 @@ function weatherForecast() {
         const units = "imperial";
         const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
         axios.get(oneDayWeatherURL)
-            .then(function(response){
+            .then(function (response) {
                 console.log(response.data.name)
-                document.getElementById("name").innerHTML=response.data.name;
+                document.getElementById("name").innerHTML = response.data.name;
                 document.getElementById("temp").innerHTML = "Temperature: " + response.data.main.temp + " °F";
-                document.getElementById("humidity").innerHTML="Humidity: "+response.data.main.humidity + "%";
-                document.getElementById("wind").innerHTML="Wind Speed: "+response.data.wind.speed + " mph";
-                
+                document.getElementById("humidity").innerHTML = "Humidity: " + response.data.main.humidity + "%";
+                document.getElementById("wind").innerHTML = "Wind Speed: " + response.data.wind.speed + " mph";
+
             })
     };
     function searchForCityCoord(userCity) {
@@ -77,17 +77,17 @@ function weatherForecast() {
         const units = "imperial";
         const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
         axios.get(oneDayWeatherURL)
-            .then(function(response){
+            .then(function (response) {
                 console.log(response)
-                
-                document.getElementById("lat").innerHTML="Latitude: "+response.data.city.coord.lat;
-                document.getElementById("lon").innerHTML="Longitude: "+response.data.city.coord.lon;
-                
+
+                document.getElementById("lat").innerHTML = "Latitude: " + response.data.city.coord.lat;
+                document.getElementById("lon").innerHTML = "Longitude: " + response.data.city.coord.lon;
+
             })
-     
+
     };
 
- 
+
 
     function searchForForecast(userCity) {
         const apiKey = "76276e859a5fc64d330030ae4dae33a3";
@@ -101,16 +101,16 @@ function weatherForecast() {
                 document.getElementById("temp0").innerHTML = "Temperature: " + response.data.list[0].main.temp + " °F";
                 document.getElementById("humidity0").innerHTML = "Humidity: " + response.data.list[0].main.humidity + "%";
                 // document.getElementById("icon0").innerHTML = ": " + response.data.list[0].weather[0].icon;
-                
+
             })
         axios.get(oneDayWeatherURL)
             .then(function (response) {
                 document.getElementById("date1").innerHTML = "Date: " + response.data.list[10].dt_txt;
                 document.getElementById("temp1").innerHTML = "Temperature: " + response.data.list[10].main.temp + " °F";
                 document.getElementById("humidity1").innerHTML = "Humidity: " + response.data.list[10].main.humidity + "%";
-                
 
-                
+
+
 
             })
         axios.get(oneDayWeatherURL)
@@ -118,9 +118,9 @@ function weatherForecast() {
                 document.getElementById("temp2").innerHTML = "Temperature: " + response.data.list[18].main.temp + " °F";
                 document.getElementById("date2").innerHTML = "Date: " + response.data.list[18].dt_txt;
                 document.getElementById("humidity2").innerHTML = "Humidity: " + response.data.list[18].main.humidity + "%";
-                
 
-                
+
+
 
             })
         axios.get(oneDayWeatherURL)
@@ -128,7 +128,7 @@ function weatherForecast() {
                 document.getElementById("date3").innerHTML = "Date: " + response.data.list[26].dt_txt;
                 document.getElementById("temp3").innerHTML = "Temperature: " + response.data.list[26].main.temp + " °F";
                 document.getElementById("humidity3").innerHTML = "Humidity: " + response.data.list[26].main.humidity + "%";
-                
+
 
 
 
@@ -138,16 +138,16 @@ function weatherForecast() {
                 document.getElementById("temp4").innerHTML = "Temperature: " + response.data.list[34].main.temp + " °F";
                 document.getElementById("date4").innerHTML = "Date: " + response.data.list[34].dt_txt;
                 document.getElementById("humidity4").innerHTML = "Humidity: " + response.data.list[34].main.humidity + "%";
-                
+
 
 
             })
 
-        
+
     };
 
-    
-    
+
+
 
 };
 weatherForecast();
