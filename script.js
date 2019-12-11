@@ -42,11 +42,12 @@ function weatherForecast() {
             var history = localStorage.getItem("history");
         }
 
+
         if (history !== "") {
             $("#lastResults").html(
                 "<b>Last Results:</b>" +
                 "<ul data-role=\"listview\" data-inset=\"true\" >" +
-                "<li><a href=\"#test\"> " + document.write(history) + " </a></li>" +
+                "<li><a href=\"#test\"> " + document.append`    (history) + " </a></li>" +
                 "</ul>"
             );
         }
@@ -61,7 +62,7 @@ function weatherForecast() {
         const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=" + units + "&appid=" + apiKey;
         axios.get(oneDayWeatherURL)
             .then(function(response){
-                console.log(response)
+                console.log(response.data.name)
                 document.getElementById("name").innerHTML=response.data.name;
                 document.getElementById("temp").innerHTML = "Temperature: " + response.data.main.temp + " °F";
                 document.getElementById("humidity").innerHTML="Humidity: "+response.data.main.humidity + "%";
@@ -95,7 +96,7 @@ function weatherForecast() {
         const oneDayWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=" + units + "&APPID=" + apiKey;
         axios.get(oneDayWeatherURL)
             .then(function (response) {
-                console.log(response)
+                console.log(response.data.list[0])
                 document.getElementById("date0").innerHTML = "Date: " + response.data.list[0].dt_txt;
                 document.getElementById("temp0").innerHTML = "Temperature: " + response.data.list[0].main.temp + " °F";
                 document.getElementById("humidity0").innerHTML = "Humidity: " + response.data.list[0].main.humidity + "%";
@@ -138,7 +139,6 @@ function weatherForecast() {
                 document.getElementById("date4").innerHTML = "Date: " + response.data.list[34].dt_txt;
                 document.getElementById("humidity4").innerHTML = "Humidity: " + response.data.list[34].main.humidity + "%";
                 
-
 
 
             })
