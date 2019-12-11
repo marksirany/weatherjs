@@ -47,7 +47,7 @@ function weatherForecast() {
             $("#lastResults").html(
                 "<b>Last Results:</b>" +
                 "<ul data-role=\"listview\" data-inset=\"true\" >" +
-                "<li><a href=\"#test\"> " + document.append`    (history) + " </a></li>" +
+                "<li><a href=\"#test\"> " + document(history) + " </a></li>" +
                 "</ul>"
             );
         }
