@@ -151,4 +151,3 @@ function weatherForecast() {
 
 };
 weatherForecast();
-
