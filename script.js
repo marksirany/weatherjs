@@ -150,4 +150,4 @@ function weatherForecast() {
 
 
 };
-weatherForecast();
+weatherForecast()
